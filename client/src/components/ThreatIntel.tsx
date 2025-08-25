@@ -28,7 +28,7 @@ export default function ThreatIntel() {
 
   const { data: threatStats } = useQuery({
     queryKey: ["/api/metrics"],
-    select: (data) => data?.threatStats || { critical: 0, high: 0, medium: 0, low: 0 },
+    select: (data) => (data as any)?.threatStats || { critical: 0, high: 0, medium: 0, low: 0 },
   });
 
   const filteredThreats = threats?.filter((threat: any) =>

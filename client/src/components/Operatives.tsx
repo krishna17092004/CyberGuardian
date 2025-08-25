@@ -71,7 +71,7 @@ export default function Operatives() {
     suspendedUsers: 3,
   };
 
-  const filteredOperatives = operatives.filter(op => {
+  const filteredOperatives = (operatives as Operative[]).filter((op: Operative) => {
     const matchesSearch = !searchTerm || 
       op.username.toLowerCase().includes(searchTerm.toLowerCase()) ||
       op.email.toLowerCase().includes(searchTerm.toLowerCase());
@@ -184,7 +184,7 @@ export default function Operatives() {
         </div>
         <div className="p-6">
           <div className="space-y-4" data-testid="operatives-list">
-            {filteredOperatives.map((operative) => (
+            {filteredOperatives.map((operative: Operative) => (
               <div key={operative.id} className="bg-cyber-dark brutalist-border p-4">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center space-x-4">

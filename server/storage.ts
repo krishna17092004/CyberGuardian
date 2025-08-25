@@ -103,7 +103,7 @@ export class DatabaseStorage implements IStorage {
     if (filters.type) conditions.push(eq(threats.type, filters.type));
     
     if (conditions.length > 0) {
-      query = query.where(and(...conditions));
+      query = query.where(and(...conditions)) as any;
     }
     
     return await query.orderBy(desc(threats.detectedAt));
@@ -204,7 +204,7 @@ export class DatabaseStorage implements IStorage {
     let query = db.select().from(systemMetrics);
     
     if (type) {
-      query = query.where(eq(systemMetrics.metricType, type));
+      query = query.where(eq(systemMetrics.metricType, type)) as any;
     }
     
     return await query.orderBy(desc(systemMetrics.timestamp));

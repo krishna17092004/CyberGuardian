@@ -1,4 +1,4 @@
-import { Search, Tv, ExternalLink } from "lucide-react";
+import { Search, Tv, ExternalLink, BarChart3 } from "lucide-react";
 import ThreatMap from "./ThreatMap";
 import ChatBot from "./ChatBot";
 import { useThreatData } from "@/hooks/useThreatData";
@@ -13,7 +13,7 @@ export default function CommandCenter() {
 
   const { data: recentThreats } = useQuery({
     queryKey: ["/api/threats"],
-    select: (data) => data?.slice(0, 5) || [], // Show only first 5 threats
+    select: (data) => (data as any[])?.slice(0, 5) || [], // Show only first 5 threats
   });
 
   return (
@@ -43,7 +43,7 @@ export default function CommandCenter() {
           <div className="flex items-center justify-between">
             <div>
               <p className="text-xs font-bold text-white">THREATS DETECTED</p>
-              <p className="text-2xl font-bold text-white">{metrics?.threatCount || 0}</p>
+              <p className="text-2xl font-bold text-white">{(metrics as any)?.threatCount || 0}</p>
               <p className="text-xs text-gray-300">LAST 24H</p>
             </div>
             <div className="text-white text-2xl">⚠️</div>
@@ -55,7 +55,7 @@ export default function CommandCenter() {
           <div className="flex items-center justify-between">
             <div>
               <p className="text-xs font-bold text-black">THREATS BLOCKED</p>
-              <p className="text-2xl font-bold text-black">{metrics?.threatStats?.high || 0}</p>
+              <p className="text-2xl font-bold text-black">{(metrics as any)?.threatStats?.high || 0}</p>
               <p className="text-xs text-gray-700">AUTO-MITIGATED</p>
             </div>
             <div className="text-black text-2xl">🛡️</div>
@@ -67,7 +67,7 @@ export default function CommandCenter() {
           <div className="flex items-center justify-between">
             <div>
               <p className="text-xs font-bold text-white">SYSTEM HEALTH</p>
-              <p className="text-2xl font-bold text-white">{metrics?.systemHealth || 96}%</p>
+              <p className="text-2xl font-bold text-white">{(metrics as any)?.systemHealth || 96}%</p>
               <p className="text-xs text-gray-300">OPERATIONAL</p>
             </div>
             <div className="text-white text-2xl">💓</div>
@@ -79,7 +79,7 @@ export default function CommandCenter() {
           <div className="flex items-center justify-between">
             <div>
               <p className="text-xs font-bold text-black">AI CONFIDENCE</p>
-              <p className="text-2xl font-bold text-black">{metrics?.aiConfidence || 94}%</p>
+              <p className="text-2xl font-bold text-black">{(metrics as any)?.aiConfidence || 94}%</p>
               <p className="text-xs text-gray-700">CYBERSENTINEL AI</p>
             </div>
             <div className="text-black text-2xl">🧠</div>

@@ -102,14 +102,14 @@ export default function IntelBriefing() {
 
       {/* News Articles Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-        {articles.map((article) => (
+        {(articles as NewsArticle[]).map((article) => (
           <div key={article.id} className="bg-cyber-gray brutalist-border cyber-shadow">
             <div className="p-6">
               <div className="mb-4">
                 <span className={`px-2 py-1 text-xs font-bold brutalist-border mr-2 ${getCategoryColor(article.category)}`}>
                   {article.category.toUpperCase()}
                 </span>
-                {article.tags?.slice(0, 2).map((tag) => (
+                {article.tags?.slice(0, 2).map((tag: string) => (
                   <span key={tag} className={`px-2 py-1 text-xs font-bold brutalist-border mr-2 ${getTagColor(tag)}`}>
                     {tag}
                   </span>

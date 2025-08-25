@@ -37,7 +37,7 @@ const threatIndicators: ThreatIndicator[] = [
     title: "Phishing Campaign",
     location: "Brazil",
     description: "Coordinated phishing emails targeting corporate credentials.",
-    position: { bottom: "16%", left: "32%" },
+    position: { top: "70%", left: "32%" },
     size: "w-2 h-2",
   },
   {
@@ -55,7 +55,7 @@ const threatIndicators: ThreatIndicator[] = [
     title: "Suspicious Activity",
     location: "Japan",
     description: "Unusual network traffic patterns detected.",
-    position: { bottom: "24%", left: "80%" },
+    position: { top: "60%", left: "80%" },
     size: "w-2 h-2",
   },
   {
